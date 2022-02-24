@@ -1,10 +1,38 @@
 // Iteration 1: All directors? - Get the array of all directors.
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
 // How could you "clean" a bit this array and make it unified (without duplicates)?
-function getAllDirectors() {}
+function getAllDirectors(array) {
+  
+  let directors = array.map((movie) => movie.director);
+
+  // Je vérifie qu'une valeur n'apparait pas plusieurs fois dans 'directors', si oui, je la supprime, Mais du coup le bonus peut ne pas passer : (array.length === returnedArray.length)
+  let filteredDirectors = [];
+
+  directors.forEach(director => {
+    if(!filteredDirectors.includes(director)){
+      filteredDirectors.push(director);
+    }
+  });
+    // console.log(filteredDirectors);
+
+    return filteredDirectors;
+
+  // return directors
+}
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
-function howManyMovies() {}
+function howManyMovies(array) {
+  // conditions : genre = 'Drama' && director = Steven Spielberg
+  // retourner un nombre
+  spielbergDrama=0;
+
+  array.forEach(elem => {
+    if(elem.director==='Steven Spielberg' && elem.genre.includes('Drama')){
+      spielbergDrama++;
+    }
+  })
+  return spielbergDrama;
+}
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage() {}
